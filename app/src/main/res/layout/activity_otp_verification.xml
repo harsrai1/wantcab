@@ -1,0 +1,153 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/background_dark">
+
+    <!-- Back Button -->
+    <ImageView
+        android:id="@+id/back_button"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="10dp"
+        android:src="@android:drawable/ic_menu_revert"
+        android:contentDescription="Back"
+        android:layout_alignParentStart="true" />
+
+    <!-- OTP Verification Title -->
+    <TextView
+        android:id="@+id/otp_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        android:text="OTP Verification"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/phone_number_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sent to: "
+        android:textSize="16sp"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true" />
+
+    <!-- OTP Info -->
+    <TextView
+        android:id="@+id/otp_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/otp_title"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:text="OTP has been sent to +91 XXXXXXX"
+        android:textColor="@android:color/white"
+        android:textSize="16sp" />
+
+    <!-- OTP Input -->
+    <LinearLayout
+        android:id="@+id/otp_input_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/otp_info"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal">
+
+        <!-- EditText for OTP input -->
+        <EditText
+            android:id="@+id/otp_box_1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@android:drawable/editbox_background"
+            android:gravity="center"
+            android:inputType="number"
+            android:maxLength="1"
+            android:textSize="18sp"
+            android:layout_margin="5dp" />
+
+        <EditText
+            android:id="@+id/otp_box_2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@android:drawable/editbox_background"
+            android:gravity="center"
+            android:inputType="number"
+            android:maxLength="1"
+            android:textSize="18sp"
+            android:layout_margin="5dp" />
+
+        <EditText
+            android:id="@+id/otp_box_3"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@android:drawable/editbox_background"
+            android:gravity="center"
+            android:inputType="number"
+            android:maxLength="1"
+            android:textSize="18sp"
+            android:layout_margin="5dp" />
+
+        <EditText
+            android:id="@+id/otp_box_4"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@android:drawable/editbox_background"
+            android:gravity="center"
+            android:inputType="number"
+            android:maxLength="1"
+            android:textSize="18sp"
+            android:layout_margin="5dp" />
+
+        <EditText
+            android:id="@+id/otp_box_5"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@android:drawable/editbox_background"
+            android:gravity="center"
+            android:inputType="number"
+            android:maxLength="1"
+            android:textSize="18sp"
+            android:layout_margin="5dp" />
+
+        <EditText
+            android:id="@+id/otp_box_6"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@android:drawable/editbox_background"
+            android:gravity="center"
+            android:inputType="number"
+            android:maxLength="1"
+            android:textSize="18sp"
+            android:layout_margin="5dp" />
+    </LinearLayout>
+
+    <!-- Resend OTP -->
+    <TextView
+        android:id="@+id/resend_otp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/otp_input_container"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:text="Resend OTP"
+        android:textColor="@android:color/holo_red_light"
+        android:textSize="14sp" />
+
+    <!-- Verify OTP Button -->
+    <Button
+        android:id="@+id/btnVerifyOtp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/resend_otp"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@android:color/holo_blue_light"
+        android:text="Verify OTP"
+        android:textColor="@android:color/white"
+        android:padding="10dp" />
+</RelativeLayout>
