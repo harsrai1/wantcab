@@ -4,56 +4,78 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DriverDetailsActivity">
+    android:background="@android:color/white"
+    tools:context=".DriverDetailsActivity"
+    android:padding="20dp">
 
     <EditText
         android:id="@+id/driverNameEditText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="Driver Name"
+        android:background="@drawable/rounded_edittext"
+        android:padding="16dp"
+        android:textSize="16sp"
+        android:textColorHint="#757575"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:padding="16dp" />
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <EditText
         android:id="@+id/carNameEditText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="Car Name"
+        android:background="@drawable/rounded_edittext"
+        android:padding="16dp"
+        android:textSize="16sp"
+        android:textColorHint="#757575"
         app:layout_constraintTop_toBottomOf="@id/driverNameEditText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:padding="16dp" />
+        android:layout_marginTop="12dp"/>
 
     <EditText
         android:id="@+id/phoneNoEditText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="Phone Number"
+        android:background="@drawable/rounded_edittext"
+        android:padding="16dp"
+        android:textSize="16sp"
+        android:textColorHint="#757575"
+        android:inputType="phone"
         app:layout_constraintTop_toBottomOf="@id/carNameEditText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:padding="16dp" />
+        android:layout_marginTop="12dp"/>
 
     <EditText
         android:id="@+id/carNoEditText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="Car Number"
+        android:background="@drawable/rounded_edittext"
+        android:padding="16dp"
+        android:textSize="16sp"
+        android:textColorHint="#757575"
         app:layout_constraintTop_toBottomOf="@id/phoneNoEditText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:padding="16dp" />
+        android:layout_marginTop="12dp"/>
 
     <Button
         android:id="@+id/submitButton"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Submit"
+        android:textSize="16sp"
+        android:textColor="@android:color/white"
+        android:background="@drawable/button_bg"
+        android:padding="12dp"
         app:layout_constraintTop_toBottomOf="@id/carNoEditText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="32dp" />
+        android:layout_marginTop="24dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
