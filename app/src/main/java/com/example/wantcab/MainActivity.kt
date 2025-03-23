@@ -621,7 +621,6 @@
 //}
 
 
-
 package com.example.wantcab
 
 import android.Manifest
@@ -630,6 +629,7 @@ import android.app.*
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Color
 import android.os.*
 import android.util.Log
 import android.widget.Button
@@ -692,7 +692,6 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
             drawerLayout.openDrawer(GravityCompat.START)
         }
 
-        startRideRequestListener()
     }
 
     private fun loadDriverDetails() {
@@ -743,11 +742,14 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
     private fun toggleDuty() {
         isOnDuty = !isOnDuty
         toggleDutyButton.text = if (isOnDuty) "Go Off Duty" else "Go On Duty"
+        updateButtonColor()
         if (isOnDuty) {
             startLocationUpdates()
             saveDriverData()
+            startRideRequestListener() // ✅ Start listening for rides when on duty
         } else {
             stopLocationUpdates()
+            stopRideRequestListener()  // ✅ Stop ride listener when off duty
         }
     }
 
@@ -792,13 +794,28 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
     private fun startRideRequestListener() {
         handler.postDelayed(object : Runnable {
             override fun run() {
-                checkForRideRequests()
-                handler.postDelayed(this, 10000)
+                if (isOnDuty) {
+                    checkForRideRequests()
+                    handler.postDelayed(this, 10000)
+                }
             }
         }, 10000)
     }
 
+    private fun stopRideRequestListener() {
+        handler.removeCallbacksAndMessages(null)
+    }
+    private fun updateButtonColor() {
+        if (isOnDuty) {
+            toggleDutyButton.setBackgroundColor(Color.parseColor("#F44336")) // Green
+        } else {
+            toggleDutyButton.setBackgroundColor(Color.parseColor("#4CAF50")) // Red
+        }
+    }
+
     private fun checkForRideRequests() {
+        if (!isOnDuty) return  // ✅ Stop checking if driver is off duty
+
         database.orderByChild("status").equalTo("pending").limitToFirst(1)
             .addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
@@ -815,7 +832,6 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
                 }
             })
     }
-
     private fun showRideNotification(rideRequest: RideRequest, requestId: String) {
         val channelId = "ride_request_channel"
         val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
@@ -866,10 +882,9 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         }, 25000)
     }
 
-
-
     private val requestPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
         if (isGranted) startLocationUpdates() else Toast.makeText(this, "Location permission denied", Toast.LENGTH_SHORT).show()
     }
 }
+
 

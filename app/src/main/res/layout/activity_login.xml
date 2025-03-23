@@ -8,9 +8,9 @@
         android:id="@+id/app_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
         android:layout_centerHorizontal="true"
-        android:text="GetCab"
+        android:layout_marginTop="40dp"
+        android:text="WantCab"
         android:textColor="@android:color/white"
         android:textSize="30sp"
         android:textStyle="bold" />
@@ -21,12 +21,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/app_name"
-        android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true"
-        android:text="Groceries delivered in\n10 minutes"
+        android:layout_marginTop="10dp"
+        android:textAlignment="center"
         android:textColor="@android:color/white"
-        android:textSize="18sp"
-        android:textAlignment="center" />
+        android:textSize="18sp" />
 
     <!-- Phone Number Input -->
     <EditText
@@ -34,12 +33,12 @@
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_below="@id/tagline"
-        android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
-        android:hint="Enter Phone Number"
+        android:layout_marginTop="20dp"
+        android:background="@android:drawable/editbox_background"
+        android:hint="Enter your Phone Number"
         android:inputType="phone"
-        android:paddingLeft="15dp"
-        android:background="@android:drawable/editbox_background" />
+        android:paddingLeft="15dp" />
 
     <!-- Continue Button -->
     <Button
